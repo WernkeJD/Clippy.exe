@@ -1,6 +1,8 @@
 from flask import Flask, request, jsonify
 import os
 
+from helper import get_internal_ip
+
 # Function to read from a file
 def read_from_file(file_path):
     if os.path.exists(file_path):
@@ -33,7 +35,7 @@ def get_clipboard():
     return jsonify({"data": clipboard_data}), 200
 
 def run_server():
-    app.run(debug=True, host='172.16.2.241', port=5000, use_reloader=False)
-    
+    app.run(debug=True, host=get_internal_ip(), port=5000, use_reloader=False)
+
 if __name__ == '__main__':
     run_server()

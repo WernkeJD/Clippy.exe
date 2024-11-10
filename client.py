@@ -1,12 +1,13 @@
 import requests
 import pyperclip
-import time
 from pynput import keyboard
 import platform
 
-url = "http://172.16.2.241:5000"
+from helper import get_internal_ip
 
-def run_mac_client():
+def run_mac_client(ip_addr):
+    url = f"http://{ip_addr}:5000"
+
     # Key mappings for Cmd/Ctrl and punctuation keys
     cmd_key = keyboard.Key.cmd
     semicolon_key = keyboard.KeyCode(char=';')
@@ -51,7 +52,9 @@ def run_mac_client():
     with keyboard.Listener(on_press=on_press, on_release=on_release) as listener:
         listener.join()
         
-def run_win_client():
+def run_win_client(ip_addr):
+    url = f"http://{ip_addr}:5000"
+
     # Virtual key codes for Windows/Linux
     cmd_key_code = 162  # VK code for Ctrl key
     semicolon_key_code = 186  # VK code for ';' key
@@ -106,11 +109,11 @@ def run_win_client():
     with keyboard.Listener(on_press=on_press, on_release=on_release) as listener:
         listener.join()
 
-def run_client():
+def run_client(ip_addr):
     if platform.system() == 'Darwin':  # macOS
-        run_mac_client()
+        run_mac_client(ip_addr)
     else:
-        run_win_client()
+        run_win_client(ip_addr)
 
 if __name__ == "__main__":
-    run_client()
+    run_client(get_internal_ip())

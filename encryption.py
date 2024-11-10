@@ -51,10 +51,7 @@ def generate_keys():
 
 
 #used to encrypt messages with the users public key
-def encrypt_ip(ip_address):
-
-    with open("public_key.pem", "r") as f:
-        public_pem = f.read()
+def encrypt_ip(ip_address, public_pem):
         
     public_pem = public_pem.encode()
 
