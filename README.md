@@ -1,4 +1,4 @@
-# MakeUC2024
+# Clippy.exe
 
 ![image](https://github.com/user-attachments/assets/1db38c0a-28ad-4695-8c69-53bfa6962d9b)
 
