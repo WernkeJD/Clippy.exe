@@ -2,7 +2,6 @@ from encryption import *
 from clipboard import *
 from host import *
 from client import *
-import socket
 
 from helper import get_internal_ip
 
@@ -22,6 +21,7 @@ if __name__ == "__main__":
             print(encrypted_ip)
             print("please share encrypted IP with client")
             run_host()
+ 
 
         elif option == 2:
             generate_keys()
