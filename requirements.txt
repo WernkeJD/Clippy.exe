@@ -1,3 +1,4 @@
 flask
 pyperclip
 requests
+keyboard

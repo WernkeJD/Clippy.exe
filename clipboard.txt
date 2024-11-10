@@ -1,2 +1,1 @@
-lipboard_content != clipboard_content:
-            clipboard_content = new_clipboard_content
+paste_shared_clipboard
