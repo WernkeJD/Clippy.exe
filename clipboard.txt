@@ -1,1 +1,2 @@
-paste_shared_clipboard
+
+    key_combin
