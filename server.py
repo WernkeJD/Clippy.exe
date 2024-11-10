@@ -33,7 +33,7 @@ def get_clipboard():
     return jsonify({"data": clipboard_data}), 200
 
 def run_server():
-    app.run(debug=True, host='172.16.2.241', port=5000)
-
+    app.run(debug=True, host='172.16.2.241', port=5000, use_reloader=False)
+    
 if __name__ == '__main__':
     run_server()

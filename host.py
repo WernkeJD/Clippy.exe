@@ -1,13 +1,17 @@
 from server import run_server
 from client import run_client
-import threading
+import multiprocessing
 
 if __name__ == "__main__":
-    server_thread = threading.Thread(target=run_server)
-    client_thread = threading.Thread(target=run_client)
+    server_process = multiprocessing.Process(target=run_server)
+    server_process.start()
 
-    server_thread.start()
-    client_thread.start()
+    # Wait a moment to ensure the server has started
+    import time
+    time.sleep(2)
 
-    server_thread.join()
-    client_thread.join()
+    client_process = multiprocessing.Process(target=run_client)
+    client_process.start()
+
+    server_process.join()
+    client_process.join()
