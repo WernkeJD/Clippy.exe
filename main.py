@@ -1,6 +1,6 @@
 from encryption import *
 from clipboard import *
-from server import *
+from host import *
 from client import *
 import socket
 
@@ -21,6 +21,7 @@ if __name__ == "__main__":
             encrypted_ip = encrypt_ip(get_internal_ip(), public_key)
             print(encrypted_ip)
             print("please share encrypted IP with client")
+            run_host()
 
         elif option == 2:
             generate_keys()
@@ -58,5 +59,8 @@ if __name__ == "__main__":
                     *please note that for your convienence we have seperated the shared and local clipboard so you can use your regular copy paste. If there is an item in shared clipboard you will ned to 
                     grab it or send it using the above commands* 
                   """)
+        elif option == 4:
+            print("Goodbye!")
+
         else:
             print("Invalid option")

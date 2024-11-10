@@ -4,7 +4,9 @@ import multiprocessing
 
 from helper import get_internal_ip
 
-def run_host(ip_addr):
+def run_host():
+    ip_addr = get_internal_ip()
+
     server_process = multiprocessing.Process(target=run_server)
     server_process.start()
 
@@ -19,4 +21,4 @@ def run_host(ip_addr):
     client_process.join()
 
 if __name__ == "__main__":
-    run_host(get_internal_ip())
+    run_host()
